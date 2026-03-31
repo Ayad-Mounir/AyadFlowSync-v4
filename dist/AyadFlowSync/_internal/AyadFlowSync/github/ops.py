@@ -400,6 +400,11 @@ class Uploader:
                 runner.run(["config", "user.name",  "AyadFlowSync"])
                 fresh_init = True
 
+            # ⚡ v4.1: إعدادات HTTP لمنع timeout مع المشاريع الكبيرة
+            runner.run(["config", "http.postBuffer", "524288000"], check=False)  # 500MB
+            runner.run(["config", "http.lowSpeedLimit", "1000"], check=False)
+            runner.run(["config", "http.lowSpeedTime", "300"], check=False)
+
             # ── ضبط remote ──────────────────────────────────────────
             remote_url = f"https://{self._token}@github.com/{username}/{repo_name}.git"
             try:
@@ -595,6 +600,11 @@ class Uploader:
                 runner.run(["init", "-b", branch])
                 runner.run(["config", "user.email", "flowsync@ayad.dev"])
                 runner.run(["config", "user.name",  "AyadFlowSync"])
+
+            # ⚡ v4.1: إعدادات HTTP لمنع timeout
+            runner.run(["config", "http.postBuffer", "524288000"], check=False)
+            runner.run(["config", "http.lowSpeedLimit", "1000"], check=False)
+            runner.run(["config", "http.lowSpeedTime", "300"], check=False)
 
             # ── LFS ──────────────────────────────────────────────
             if use_lfs and large:
