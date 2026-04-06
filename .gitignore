@@ -1,0 +1,28 @@
+# Build output
+dist/
+build/
+*.spec
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Secrets — لا تُشارك أبداً
+AyadFlowSync/data/.flash_secret
+AyadFlowSync/data/.keyfile
+AyadFlowSync/data/config.dat
+AyadFlowSync/data/logs/
+AyadFlowSync/data/locks/
+AyadFlowSync/data/hash_cache*.db
+AyadFlowSync/data/sync_index.db
+AyadFlowSync/data/dir_snapshots.db
+AyadFlowSync/data/pc_name.txt
+AyadFlowSync/data/checkpoint_*.json
+
+# Added by AyadFlowSync
+venv/
+.DS_Store
